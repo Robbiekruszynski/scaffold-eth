@@ -16,5 +16,13 @@ contract SmartContractWallet {
     console.log(msg.sender,"withdraws",(address(this)).balance);
     msg.sender.transfer((address(this)).balance);
   }
+}
 
+function isOwner(address possibleOwner) public view returns (bool) {
+  return (possibleOwner==owner);
+}
+
+function updateOwner(address newOwner) public {
+  require(isOwner(msg.sender(, "NOT THE OWNER;
+  owner = newOwner;
 }
